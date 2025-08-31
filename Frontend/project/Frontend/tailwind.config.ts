@@ -159,5 +159,44 @@ export default {
 			}
 		}
 	},
+	extend: {
+		colors: {
+			agri: {
+				50: 'hsl(var(--agri-50))',
+				100: 'hsl(var(--agri-100))',
+				200: 'hsl(var(--agri-200))',
+				300: 'hsl(var(--agri-300))',
+				400: 'hsl(var(--agri-400))',
+				500: 'hsl(var(--agri-500))',
+				600: 'hsl(var(--agri-600))',
+				700: 'hsl(var(--agri-700))',
+				800: 'hsl(var(--agri-800))',
+				900: 'hsl(var(--agri-900))'
+			},
+			earth: {
+				100: 'hsl(var(--earth-100))',
+				200: 'hsl(var(--earth-200))',
+				300: 'hsl(var(--earth-300))',
+				400: 'hsl(var(--earth-400))',
+				500: 'hsl(var(--earth-500))'
+			},
+			sky: {
+				100: 'hsl(var(--sky-100))',
+				200: 'hsl(var(--sky-200))',
+				300: 'hsl(var(--sky-300))'
+			}
+		},
+		backgroundImage: {
+			'gradient-agri': 'var(--gradient-agri)',
+			'gradient-earth': 'var(--gradient-earth)',
+			'gradient-sky': 'var(--gradient-sky)',
+			'gradient-hero': 'var(--gradient-hero)'
+		},
+		boxShadow: {
+			'agri': 'var(--shadow-agri)',
+			'earth': 'var(--shadow-earth)',
+			'glow': 'var(--shadow-glow)'
+		}
+	},
 	plugins: [require("tailwindcss-animate")],
 } satisfies Config;

@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
+
 import NotFound from "./pages/NotFound";
 import SoilAnalysis from "./pages/dashboard/CropPrediction";
 import Weather from "./pages/dashboard/Weather";

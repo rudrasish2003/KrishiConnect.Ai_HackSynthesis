@@ -1,0 +1,25 @@
+/* Modern golden & green gradient scrollbar for the whole page */
+
+body::-webkit-scrollbar {
+  width: 12px;
+}
+body::-webkit-scrollbar-track {
+  background: #181818;
+  border-radius: 8px;
+}
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(120deg, #bfa23a 0%, #ffd700 100%);
+  border-radius: 8px;
+  border: 2px solid #222;
+  box-shadow: 0 2px 8px #222;
+}
+body {
+  scrollbar-width: thin;
+  scrollbar-color: #bfa23a #181818;
+}
+
+/* For Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #bfa23a #181818;
+}

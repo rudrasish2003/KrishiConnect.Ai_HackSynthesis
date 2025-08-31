@@ -1,0 +1,268 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 45 25% 97%;
+    --foreground: 120 15% 8%;
+
+    --card: 45 25% 97%;
+    --card-foreground: 120 15% 8%;
+
+    --popover: 45 25% 97%;
+    --popover-foreground: 120 15% 8%;
+
+    /* Agriculture Theme Colors */
+    --agri-50: 110 50% 95%;
+    --agri-100: 110 45% 88%;
+    --agri-200: 110 40% 75%;
+    --agri-300: 110 35% 62%;
+    --agri-400: 110 30% 50%;
+    --agri-500: 110 35% 38%;
+    --agri-600: 110 40% 28%;
+    --agri-700: 110 45% 20%;
+    --agri-800: 110 50% 15%;
+    --agri-900: 110 55% 10%;
+
+    /* Earth Tones */
+    --earth-100: 35 50% 95%;
+    --earth-200: 35 40% 85%;
+    --earth-300: 35 35% 75%;
+    --earth-400: 35 30% 65%;
+    --earth-500: 35 25% 55%;
+
+    /* Sky Colors */
+    --sky-100: 200 50% 95%;
+    --sky-200: 200 45% 85%;
+    --sky-300: 200 40% 75%;
+
+    /* Gradients */
+    --gradient-agri: linear-gradient(135deg, hsl(var(--agri-400)), hsl(var(--agri-600)));
+    --gradient-earth: linear-gradient(135deg, hsl(var(--earth-300)), hsl(var(--agri-500)));
+    --gradient-sky: linear-gradient(135deg, hsl(var(--sky-200)), hsl(var(--agri-300)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--agri-500)), hsl(var(--earth-400)), hsl(var(--sky-300)));
+
+    /* Shadows */
+    --shadow-agri: 0 10px 25px -5px hsl(var(--agri-500) / 0.2);
+    --shadow-earth: 0 8px 30px -12px hsl(var(--earth-400) / 0.3);
+    --shadow-glow: 0 0 40px hsl(var(--agri-400) / 0.4);
+
+    /* Indian Agriculture Theme - Rich Greens and Earth Tones */
+    --primary: 120 45% 25%;
+    --primary-foreground: 45 25% 97%;
+    --primary-light: 120 40% 35%;
+    --primary-lighter: 120 35% 45%;
+
+    --secondary: 45 30% 85%;
+    --secondary-foreground: 120 15% 8%;
+
+    --muted: 45 20% 90%;
+    --muted-foreground: 120 10% 45%;
+
+    --accent: 40 45% 55%;
+    --accent-foreground: 45 25% 97%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 45 25% 97%;
+
+    --border: 45 15% 85%;
+    --input: 45 15% 85%;
+    --ring: 120 45% 25%;
+
+    /* Custom Agriculture Colors */
+    --earth-brown: 25 35% 45%;
+    --golden-wheat: 45 60% 65%;
+    --fertile-green: 120 50% 30%;
+    --harvest-gold: 40 70% 55%;
+    --soil-brown: 30 25% 35%;
+    --sky-blue: 200 70% 85%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--earth-brown)) 50%, hsl(var(--golden-wheat)) 100%);
+    --gradient-earth: linear-gradient(180deg, hsl(var(--earth-brown)) 0%, hsl(var(--soil-brown)) 100%);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 120 15% 8%;
+    --foreground: 45 25% 97%;
+
+    --card: 120 20% 12%;
+    --card-foreground: 45 25% 97%;
+
+    --popover: 120 20% 12%;
+    --popover-foreground: 45 25% 97%;
+
+    --primary: 120 35% 45%;
+    --primary-foreground: 120 15% 8%;
+    --primary-light: 120 40% 55%;
+    --primary-lighter: 120 45% 65%;
+
+    --secondary: 120 15% 15%;
+    --secondary-foreground: 45 25% 97%;
+
+    --muted: 120 10% 20%;
+    --muted-foreground: 45 15% 65%;
+
+    --accent: 40 45% 55%;
+    --accent-foreground: 120 15% 8%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 45 25% 97%;
+
+    --border: 120 15% 20%;
+    --input: 120 15% 20%;
+    --ring: 120 35% 45%;
+
+    /* Dark mode agriculture colors */
+    --earth-brown: 25 25% 25%;
+    --golden-wheat: 45 40% 45%;
+    --fertile-green: 120 40% 20%;
+    --harvest-gold: 40 50% 35%;
+    --soil-brown: 30 20% 20%;
+    --sky-blue: 200 50% 65%;
+
+    /* Dark gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--earth-brown)) 50%, hsl(var(--golden-wheat)) 100%);
+    --gradient-earth: linear-gradient(180deg, hsl(var(--earth-brown)) 0%, hsl(var(--soil-brown)) 100%);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  /* Agriculture Theme Animations */
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+
+  .animate-bounce-gentle {
+    animation: bounceGentle 2s ease-in-out infinite;
+  }
+
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+
+  .backdrop-blur-strong {
+    backdrop-filter: blur(8px);
+  }
+
+  /* Agriculture specific utilities */
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .bg-gradient-earth {
+    background: var(--gradient-earth);
+  }
+
+  /* Hero section specific styles */
+  .hero-overlay {
+    background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.5) 50%,
+      rgba(0, 0, 0, 0.6) 100%
+    );
+  }
+
+  /* Smooth image transitions */
+  .hero-image-fade {
+    transition: opacity 2s cubic-bezier(0.4, 0, 0.2, 1), transform 8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hero-image-fade.active {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .hero-image-fade.inactive {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceGentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+

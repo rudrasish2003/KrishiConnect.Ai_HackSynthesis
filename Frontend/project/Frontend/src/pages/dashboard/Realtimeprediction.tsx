@@ -485,7 +485,7 @@ const Index = () => {
 
       setIdealCrop({
         name: topCrop.name,
-        suitability: topCrop.confidence,
+        Confidence : topCrop.confidence,
         reason: `Based on current soil conditions and weather data, ${topCrop.name} is predicted with ${topCrop.confidence}% confidence.`
       });
 

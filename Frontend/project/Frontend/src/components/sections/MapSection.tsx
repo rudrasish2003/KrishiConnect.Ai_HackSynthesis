@@ -80,23 +80,36 @@ export default function MapSection() {
   });
 
   return (
-    <section className="py-16 bg-agri-50">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-gradient-to-br from-agri-50 via-yellow-100 to-agri-200 relative overflow-hidden">
+      {/* Glowing golden shapes in background */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="absolute top-10 left-10 w-40 h-40 bg-yellow-400/30 rounded-full blur-2xl" />
+        <div className="absolute bottom-10 right-10 w-56 h-56 bg-yellow-500/40 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 w-32 h-32 bg-agri-400/30 rounded-full blur-2xl -translate-x-1/2 -translate-y-1/2" />
+      </div>
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 gradient-text">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-600 to-agri-500 bg-clip-text text-transparent drop-shadow-lg">
             KrishiConnect Across India
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-agri-700 max-w-3xl mx-auto">
             Our platform is active across multiple states in India, helping thousands of farmers improve their agricultural practices.
           </p>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-8 items-center justify-center">
           {/* Map visualization */}
-          <div className="w-full lg:w-1/2 relative bg-white rounded-xl shadow-lg p-6">
+          <div className="w-full lg:w-1/2 relative bg-white/80 rounded-2xl shadow-lg p-6 backdrop-blur-md border-2 border-yellow-400">
             <div className="relative w-full aspect-[4/5] border-2 border-agri-100 rounded-lg overflow-hidden bg-agri-50">
+              {/* Indian map image from Unsplash as background */}
+              <img 
+                src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=800&auto=format&fit=crop" 
+                alt="India map" 
+                className="absolute inset-0 w-full h-full object-cover opacity-60 blur-sm scale-105" 
+                style={{ zIndex: 0 }}
+              />
               {/* India outline - simplified representation */}
-              <div className="absolute inset-0 p-4">
+              <div className="absolute inset-0 p-4 z-10">
                 {/* Map points for each state */}
                 {states.map((state) => (
                   <motion.div
@@ -110,10 +123,10 @@ export default function MapSection() {
                     <div
                       className={`w-3 h-3 rounded-full ${
                         state.active
-                          ? "bg-agri-500 shadow-lg shadow-agri-400/30"
-                          : "bg-gray-300"
-                      }`}
-                    />
+                          ? "bg-yellow-400 shadow-lg shadow-yellow-400/30 border-2 border-white"
+                          : "bg-gray-300 border border-gray-400"
+                      } transition-all duration-500`}
+                    ></div>
                     {state.active && (
                       <motion.div
                         className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-1.5 h-10 origin-top"
@@ -121,10 +134,10 @@ export default function MapSection() {
                         animate={{ scaleY: 1 }}
                         transition={{ duration: 0.3, delay: Math.random() * 0.5 }}
                       >
-                        <div className="w-full h-full bg-agri-500/50" />
+                        <div className="w-full h-full bg-yellow-400/50" />
                       </motion.div>
                     )}
-                    <div className="absolute top-5 left-1/2 transform -translate-x-1/2 text-xs font-semibold whitespace-nowrap">
+                    <div className="absolute top-5 left-1/2 transform -translate-x-1/2 text-xs font-semibold whitespace-nowrap text-yellow-700 drop-shadow">
                       {state.id}
                     </div>
                   </motion.div>
@@ -132,14 +145,14 @@ export default function MapSection() {
               </div>
             </div>
 
-            <div className="mt-4 text-center text-sm text-gray-600">
+            <div className="mt-4 text-center text-sm text-agri-700">
               <div className="flex items-center justify-center gap-4">
                 <div className="flex items-center">
-                  <div className="w-3 h-3 rounded-full bg-agri-500 mr-2"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-400 mr-2 border-2 border-white"></div>
                   <span>Active States</span>
                 </div>
                 <div className="flex items-center">
-                  <div className="w-3 h-3 rounded-full bg-gray-300 mr-2"></div>
+                  <div className="w-3 h-3 rounded-full bg-gray-300 mr-2 border border-gray-400"></div>
                   <span>Coming Soon</span>
                 </div>
               </div>
@@ -148,39 +161,39 @@ export default function MapSection() {
 
           {/* State information */}
           <div className="w-full lg:w-1/2">
-            <div className="bg-white rounded-xl shadow-lg p-6 h-full">
-              <h3 className="text-2xl font-bold mb-6 text-agri-800">
+            <div className="bg-white/80 rounded-2xl shadow-lg p-6 h-full border-2 border-yellow-400 backdrop-blur-md">
+              <h3 className="text-2xl font-bold mb-6 text-agri-800 bg-gradient-to-r from-yellow-400 via-yellow-600 to-agri-500 bg-clip-text text-transparent drop-shadow-lg">
                 {activeState ? activeState : "Our Impact Across States"}
               </h3>
 
               {activeState && stateCounts.farmers[activeState as keyof typeof stateCounts.farmers] ? (
                 <div className="space-y-6">
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-agri-50 p-4 rounded-lg">
-                      <h4 className="text-lg text-agri-700 font-semibold">Farmers Connected</h4>
-                      <p className="text-3xl font-bold text-agri-600">
+                    <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                      <h4 className="text-lg text-yellow-700 font-semibold">Farmers Connected</h4>
+                      <p className="text-3xl font-bold text-yellow-600">
                         {stateCounts.farmers[activeState as keyof typeof stateCounts.farmers].toLocaleString()}
                       </p>
                     </div>
-                    <div className="bg-agri-50 p-4 rounded-lg">
-                      <h4 className="text-lg text-agri-700 font-semibold">Hectares Analyzed</h4>
-                      <p className="text-3xl font-bold text-agri-600">
+                    <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                      <h4 className="text-lg text-yellow-700 font-semibold">Hectares Analyzed</h4>
+                      <p className="text-3xl font-bold text-yellow-600">
                         {stateCounts.hectares[activeState as keyof typeof stateCounts.hectares].toLocaleString()}
                       </p>
                     </div>
                   </div>
-                  <p className="text-gray-600">
+                  <p className="text-agri-700">
                     In {activeState}, we're helping farmers optimize their agricultural practices 
                     through soil analysis, weather forecasting, and AI-powered tools tailored to 
                     the specific conditions and crops of the region.
                   </p>
-                  <div className="bg-agri-50 p-4 rounded-lg">
-                    <h4 className="text-lg text-agri-700 font-semibold mb-2">Primary Crops</h4>
+                  <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                    <h4 className="text-lg text-yellow-700 font-semibold mb-2">Primary Crops</h4>
                     <div className="flex flex-wrap gap-2">
                       {generateRandomCrops(activeState).map((crop, index) => (
                         <span
                           key={index}
-                          className="px-3 py-1 bg-white rounded-full text-agri-700 text-sm border border-agri-200"
+                          className="px-3 py-1 bg-white rounded-full text-yellow-700 text-sm border border-yellow-200"
                         >
                           {crop}
                         </span>
@@ -190,25 +203,25 @@ export default function MapSection() {
                 </div>
               ) : (
                 <div>
-                  <p className="text-gray-600 mb-6">
+                  <p className="text-agri-700 mb-6">
                     Hover over an active state on the map to see detailed information about our operations and impact in that region.
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="bg-agri-50 p-4 rounded-lg">
-                      <h4 className="text-lg text-agri-700 font-semibold">Total States Active</h4>
-                      <p className="text-3xl font-bold text-agri-600">18</p>
+                    <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                      <h4 className="text-lg text-yellow-700 font-semibold">Total States Active</h4>
+                      <p className="text-3xl font-bold text-yellow-600">18</p>
                     </div>
-                    <div className="bg-agri-50 p-4 rounded-lg">
-                      <h4 className="text-lg text-agri-700 font-semibold">Total Farmers</h4>
-                      <p className="text-3xl font-bold text-agri-600">84,765</p>
+                    <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                      <h4 className="text-lg text-yellow-700 font-semibold">Total Farmers</h4>
+                      <p className="text-3xl font-bold text-yellow-600">84,765</p>
                     </div>
-                    <div className="bg-agri-50 p-4 rounded-lg">
-                      <h4 className="text-lg text-agri-700 font-semibold">Hectares Analyzed</h4>
-                      <p className="text-3xl font-bold text-agri-600">228,450</p>
+                    <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                      <h4 className="text-lg text-yellow-700 font-semibold">Hectares Analyzed</h4>
+                      <p className="text-3xl font-bold text-yellow-600">228,450</p>
                     </div>
-                    <div className="bg-agri-50 p-4 rounded-lg">
-                      <h4 className="text-lg text-agri-700 font-semibold">Success Rate</h4>
-                      <p className="text-3xl font-bold text-agri-600">94%</p>
+                    <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                      <h4 className="text-lg text-yellow-700 font-semibold">Success Rate</h4>
+                      <p className="text-3xl font-bold text-yellow-600">94%</p>
                     </div>
                   </div>
                 </div>
